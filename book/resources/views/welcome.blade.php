@@ -4,8 +4,8 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="panel panel-primary">
-          <div class="panel-heading">Continue Reading</div>
+        <div class="panel panel-info">
+          <div class="panel-heading"><strong>Continue Reading</strong></div>
           <div id="bookCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="item active">
@@ -35,8 +35,8 @@
         <br/>
         <br/>
         <br/>
-        <div class="panel panel-primary">
-          <div class="panel-heading">New Arrivals</div>
+        <div class="panel panel-info">
+          <div class="panel-heading"><strong>New Arrivals</strong></div>
           <div id="bookCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
               <div class="item active">

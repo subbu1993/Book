@@ -11,6 +11,12 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
+        <style>
+        body {
+          background:   #595959 !important;
+        }
+        </style>
+
     </head>
     <body bgcolor="black">
       <nav class="navbar navbar-inverse">
