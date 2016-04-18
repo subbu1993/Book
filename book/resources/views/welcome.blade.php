@@ -59,7 +59,7 @@
                     </div>
                     <div class="item">
                       <div class="col-xs-3 hoverImage"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" /></a><p class="hoverText"> This is a book</div>
-                      <div class="col-xs-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" /></a></div>
+                      <div class="col-xs-3 hoverImage"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" /></a></div>
                       <div class="col-xs-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" /></a></div>
                       <div class="col-xs-3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" /></a></div>
                     </div>
