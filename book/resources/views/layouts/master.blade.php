@@ -24,28 +24,48 @@
           <div class="navbar-header">
             <a class="navbar-brand" href="/">BookIT</a>
           </div>
-          <ul class="nav navbar-nav">
-            <li class="dropdown active  ">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Genre
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Comedy</a></li>
-                <li><a href="#">Fiction</a></li>
-                <li><a href="#">Action</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Authors
-              <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Dan Brown</a></li>
-                <li><a href="#">Jeffery Archer</a></li>
-                <li><a href="#">J K Rowling</a></li>
-              </ul>
-            </li>
-          </ul>
+          @if (Auth::guest())
+
+          @else
+            <ul class="nav navbar-nav">
+              <li class="dropdown active  ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Genre
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Comedy</a></li>
+                  <li><a href="#">Fiction</a></li>
+                  <li><a href="#">Action</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Authors
+                <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Dan Brown</a></li>
+                  <li><a href="#">Jeffery Archer</a></li>
+                  <li><a href="#">J K Rowling</a></li>
+                </ul>
+              </li>
+            </ul>
+          @endif
+          <!-- Right Side Of Navbar -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">Your Profile</a></li>
+              <!-- Authentication Links -->
+              @if (Auth::guest())
+                  <li><a href="{{ url('/login') }}">Login</a></li>
+                  <li><a href="{{ url('/register') }}">Register</a></li>
+              @else
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                          {{ Auth::user()->name }} <span class="caret"></span>
+                      </a>
+
+                      <ul class="dropdown-menu" role="menu">
+                          <li><a href="{{ url('/library') }}"><i class="fa fa-btn fa-sign-out"></i>My Library</a></li>
+                          <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                      </ul>
+                  </li>
+              @endif
           </ul>
         </div>
       </nav>
