@@ -11,12 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','BookController@welcome');
 
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
 
 Route::get('/library', 'UserController@library');
+
+Route::post('/addBook', 'BookController@addBook');
+
+Route::get('/authors/all', 'AuthorController@getAllAuthors');
+
+Route::get('/books/all','BookController@getBookNames');
+
+Route::get('books/show/{id}', 'BookController@show');
+
+Route::get('/books/read/{id}','BookController@read');

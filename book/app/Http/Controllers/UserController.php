@@ -14,7 +14,7 @@ class UserController extends Controller
     public function library()
     {
       $user = Auth::user();
-      $books = $user->books();
+      $books = $user->books()->get();
       return view('user.library', ['books' => $books]);
     }
 }
