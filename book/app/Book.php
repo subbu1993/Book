@@ -21,4 +21,9 @@ class Book extends Model
     {
       return $this->hasMany('App\Review');
     }
+
+    public function user_reads()
+    {
+      return $this->hasMany('App\UserRead');
+    }
 }
