@@ -106,7 +106,8 @@ class BookController extends Controller
     public function show($id)
     {
       $book = Book::find($id);
-      return view('book.show', ['book' => $book]);
+      $reviews = $book->reviews()->get();
+      return view('book.show', ['book' => $book, 'reviews' => $reviews]);
     }
 
     public function read($id)

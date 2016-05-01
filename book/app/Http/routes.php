@@ -28,3 +28,5 @@ Route::get('/books/all','BookController@getBookNames');
 Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('/books/read/{id}','BookController@read');
+
+Route::resource('review', 'ReviewController');
