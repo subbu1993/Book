@@ -42,6 +42,7 @@ class ReviewController extends Controller
       $review->user_id = $user->id;
       $review->book_id = $request->book_id;
       $review->review_description = $request->review_text;
+      $review->review_rating = $request->rating;
       $review->save();
       return redirect("/books/show/$request->book_id");
     }

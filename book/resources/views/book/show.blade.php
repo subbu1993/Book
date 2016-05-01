@@ -19,7 +19,7 @@
               <div class="col-md-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="250" width="250"/></div>
             @else
               <div class="col-md-4"><img src="/uploads/cover_pics/default.jpg" height="250" width="250"/></div>
-            @endif  
+            @endif
             <div class="col-md-8"><p> {{ $book->description }}</p> </div>
           </div>
           <div class="row">
@@ -48,6 +48,21 @@
                 <textarea class="form-control input-sm" name="review_text"></textarea>
               </div>
               <div class="form-group col-md-12">
+                <label>Review Rating: </label>
+                <span class="starRating">
+                  <input id="rating5" type="radio" name="rating" value="5">
+                  <label for="rating5">5</label>
+                  <input id="rating4" type="radio" name="rating" value="4">
+                  <label for="rating4">4</label>
+                  <input id="rating3" type="radio" name="rating" value="3">
+                  <label for="rating3">3</label>
+                  <input id="rating2" type="radio" name="rating" value="2">
+                  <label for="rating2">2</label>
+                  <input id="rating1" type="radio" name="rating" value="1">
+                  <label for="rating1">1</label>
+                </span>
+              </div>
+              <div class="form-group col-md-12">
                 <input type="submit" class="btn btn-success pull-right"></input>
               </div>
             </form>
@@ -56,26 +71,30 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2"></div>
-    <div class="col-md-8">
-      <div class="panel panel-danger">
-        <div class="panel-heading"> <strong> See reviews from readers of {{ $book->name }} </strong></div>
-        @foreach($reviews as $review)
-        <div class="row">
-          <br/>
-          <div class="col-md-10 col-md-offset-1 ">
-            <div class="panel panel-default">
-              <div class="panel-heading"> <strong> {{  $review->user->name }} </strong> <p class="pull-right"> {{ $review->created_at }} </p></div>
-              <div class="panel-body">
-                <p> {{ $review->review_description  }} </p>
+  @if($reviews->count() > 0)
+    <div class="row">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
+        <div class="panel panel-danger">
+          <div class="panel-heading"> <strong> See reviews from readers of {{ $book->name }} </strong></div>
+          @foreach($reviews as $review)
+          <div class="row">
+            <br/>
+            <div class="col-md-10 col-md-offset-1 ">
+              <div class="panel panel-default">
+                <div class="panel-heading"> <strong> {{  $review->user->name }} </strong> <p class="pull-right"> {{ $review->created_at }} </p></div>
+                <div class="panel-body">
+                  <p> {{ $review->review_description  }} </p>
+                  <br/>
+                  <strong> Score: {{ $review->review_rating}}/5 </strong>
+                </div>
               </div>
             </div>
           </div>
+          @endforeach
         </div>
-        @endforeach
       </div>
     </div>
-  </div>
+  @endif
 </div>
 @endsection
