@@ -11,8 +11,16 @@
   </style>
   @if (Auth::guest())
 
+
   @else
-    <div class="container">
+    <script type="text/javascript">
+      var auto_refresh = setInterval(
+      function ()
+      {
+      $('#newArrivals').load('/').fadeIn("slow");
+    }, 20000); // refresh every 10000 milliseconds
+    </script>
+    <div  id="newArrivals" class="container">
       @if($reading->count() > 0)
         <div class="row">
           <div class="col-md-10 col-md-offset-1">

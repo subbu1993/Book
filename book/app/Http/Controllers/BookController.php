@@ -11,6 +11,7 @@ use App\UserRead;
 use Illuminate\Support\Facades\Input;
 use Validator;
 use Response;
+use View;
 
 class BookController extends Controller
 {
@@ -98,13 +99,27 @@ class BookController extends Controller
       return $names;
     }
 
-    public function welcome()
+    public function welcome(Request $request)
     {
-      $user = Auth::user();
-      $reading_books = UserRead::where('user_id',$user->id)->where('status','reading')->get();
-      $new_arrivals = Book::orderBy('created_at','desc')->limit(8)->get();
-      $all_books = Book::all();
-      return view('welcome',['reading' => $reading_books, 'new_arrivals' => $new_arrivals, 'all_books' => $all_books]);
+      if (Auth::guest())
+        return view('welcome');
+      else
+      {
+        $user = Auth::user();
+        $reading_books = UserRead::where('user_id',$user->id)->where('status','reading')->get();
+        $new_arrivals = Book::orderBy('created_at','desc')->limit(8)->get();
+        $all_books = Book::all();
+        $view = View::make('welcome',['reading' => $reading_books, 'new_arrivals' => $new_arrivals, 'all_books' => $all_books]);
+
+        if($request->ajax())
+        {
+          $sections = $view->renderSections();
+          return $sections['content'];
+        }
+
+        return $view;
+      }
+
     }
 
     public function show($id)
@@ -135,5 +150,14 @@ class BookController extends Controller
       $user = Auth::user();
       $user_read = UserRead::where('user_id', $user->id)->where('book_id', $id)->update(['status' => "done"]);
       return redirect("/books/show/$id");
+    }
+
+    public function newArrivals()
+    {
+      $user = Auth::user();
+      $reading_books = UserRead::where('user_id',$user->id)->where('status','reading')->get();
+      $new_arrivals = Book::orderBy('created_at','desc')->limit(8)->get();
+      $all_books = Book::all();
+      return view('welcome',['reading' => $reading_books, 'new_arrivals' => $new_arrivals, 'all_books' => $all_books]);
     }
 }

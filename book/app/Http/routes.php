@@ -32,3 +32,5 @@ Route::get('/books/read/{id}','BookController@read');
 Route::resource('review', 'ReviewController');
 
 Route::get('/books/done/{id}','BookController@done');
+
+Route::get('/books/newArrivals','BookController@newArrivals');
