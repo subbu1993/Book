@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserRead extends Model
 {
+    protected $fillable = [
+        'user_id', 'book_id','status'
+    ];
+
     public function user()
     {
       return $this->belongsTo('App\User');

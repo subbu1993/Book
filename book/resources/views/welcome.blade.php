@@ -27,12 +27,12 @@
                         <div class="item">
                       @endif
                       @if(file_exists(public_path("uploads/cover_pics/$book->id.jpg")))
-                        <div class="col-xs-3">
+                        <div class="col-xs-3 image">
                           <a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/{{$book->id}}.jpg" /></a>
                           <p><center><span>{{ $book->name}}</span></center></p>
                         </div>
                       @else
-                        <div class="col-xs-3"><a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/default.jpg" /></a><p><center><span>{{ $book->name}}</span></center></p></div>
+                        <div class="col-xs-3 image"><a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/default.jpg" /></a><p><center><span>{{ $book->name}}</span></center></p></div>
                       @endif
                     @endforeach
                   </div>

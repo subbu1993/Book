@@ -118,8 +118,12 @@ class BookController extends Controller
     {
       $user = Auth::user();
       $user_read = UserRead::firstOrCreate(['user_id' => $user->id, 'book_id' => $id, 'status'=> "reading"]);
-      $filename = "uploads/books/7.pdf";
-      $path = public_path($filename);
+      $filename = "uploads/books/$id.pdf";
+      if(file_exists(public_path($filename)))
+        $path = public_path($filename);
+      else {
+          $path = public_path("uploads/books/default.pdf");
+      }
       return Response::make(file_get_contents($path), 200, [
           'Content-Type' => 'application/pdf',
           'Content-Disposition' => 'inline; filename="'.$filename.'"'

@@ -15,7 +15,11 @@
         <div class="panel-heading"> <strong> {{ $book->name }} | {{ $book->author()->get()->first()->name}} </strong> <a class="btn btn-success btn-sm pull-right" href="/books/done/{{$book->id}}">Add to your Done list</a></div>
         <div class="panel-body">
           <div class="row">
-            <div class="col-md-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="250" width="250"/></div>
+            @if(file_exists(public_path("uploads/cover_pics/$book->id.jpg")))
+              <div class="col-md-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="250" width="250"/></div>
+            @else
+              <div class="col-md-4"><img src="/uploads/cover_pics/default.jpg" height="250" width="250"/></div>
+            @endif  
             <div class="col-md-8"><p> {{ $book->description }}</p> </div>
           </div>
           <div class="row">
