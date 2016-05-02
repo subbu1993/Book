@@ -106,7 +106,8 @@ class BookController extends Controller
       else
       {
         $user = Auth::user();
-        $reading_books = UserRead::where('user_id',$user->id)->where('status','reading')->get();
+        $current_books = UserRead::where('user_id',$user->id)->where('status','reading')->pluck('book_id');
+        $reading_books = Book::whereIn('id',$current_books)->get();
         $new_arrivals = Book::orderBy('created_at','desc')->limit(8)->get();
         $all_books = Book::all();
         $view = View::make('welcome',['reading' => $reading_books, 'new_arrivals' => $new_arrivals, 'all_books' => $all_books]);
@@ -155,7 +156,8 @@ class BookController extends Controller
     public function newArrivals()
     {
       $user = Auth::user();
-      $reading_books = UserRead::where('user_id',$user->id)->where('status','reading')->get();
+      $current_books = UserRead::where('user_id',$user->id)->where('status','reading')->pluck('book_id');
+      $reading_books = Book::where('id',$current_books);
       $new_arrivals = Book::orderBy('created_at','desc')->limit(8)->get();
       $all_books = Book::all();
       return view('welcome',['reading' => $reading_books, 'new_arrivals' => $new_arrivals, 'all_books' => $all_books]);
