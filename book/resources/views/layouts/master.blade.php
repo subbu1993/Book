@@ -32,9 +32,9 @@
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Genre
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Comedy</a></li>
-                  <li><a href="#">Fiction</a></li>
-                  <li><a href="#">Action</a></li>
+                  <li><a href="/genre/list/Comedy">Comedy</a></li>
+                  <li><a href="/genre/list/Fiction">Fiction</a></li>
+                  <li><a href="/genre/list/Tragedy">Tragedy</a></li>
                 </ul>
               </li>
               <li class="dropdown">
