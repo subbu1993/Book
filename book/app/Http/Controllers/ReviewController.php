@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Review;
-
+use Symfony\Component\HttpKernel\Exception;
 class ReviewController extends Controller
 {
     /**

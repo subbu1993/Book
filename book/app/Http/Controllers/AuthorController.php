@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests;
 use App\Author;
-
+use Symfony\Component\HttpKernel\Exception;
 class AuthorController extends Controller
 {
     public function getAllAuthors()

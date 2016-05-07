@@ -8,7 +8,7 @@ use App\Http\Requests;
 use App\Book;
 use App\UserRead;
 use DB;
-
+use Symfony\Component\HttpKernel\Exception;
 class GenreController extends Controller
 {
     //

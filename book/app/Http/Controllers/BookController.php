@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use Response;
 use View;
+use Symfony\Component\HttpKernel\Exception;
 
 class BookController extends Controller
 {

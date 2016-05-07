@@ -42,15 +42,6 @@
                   <li><a href="/genre/list/Tragedy">Tragedy</a></li>
                 </ul>
               </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Authors
-                <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Dan Brown</a></li>
-                  <li><a href="#">Jeffery Archer</a></li>
-                  <li><a href="#">J K Rowling</a></li>
-                </ul>
-              </li>
             </ul>
           @endif
           <!-- Right Side Of Navbar -->
