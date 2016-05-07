@@ -69,7 +69,7 @@ class BookController extends Controller
           if ($file->isValid()) {
              $destinationPath = 'uploads/cover_pics';
              $extension = $file->getClientOriginalExtension();
-             if(Book::count == 0)
+             if(Book::count() == 0)
               $lastBookID = 1;
              else
               $lastBookID = Book::latest()->first()->id;
