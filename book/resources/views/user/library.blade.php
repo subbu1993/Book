@@ -120,7 +120,11 @@
                 <div class="col-sm-4"><strong>{{ $book->name }}</strong></div>
               </div>
               <div class="row">
-                <div class="col-sm-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="150" width="200"/></div>
+                @if(file_exists(public_path("uploads/cover_pics/$book->id.jpg")))
+                  <div class="col-sm-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="150" width="200"/></div>
+                @else
+                  <div class="col-xs-3 image"><a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/default.jpg" /></a><p><center><span>{{ $book->name}}</span></center></p></div>
+                @endif
                 <div class="col-sm-8">{{ $book->author()->get()->first()->name }}<hr/></div>
                 <div class="col-sm-8">{{ $book->description }}</div>
               </div>
