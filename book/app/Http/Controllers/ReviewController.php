@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Review;
 use Symfony\Component\HttpKernel\Exception;
+use App\Book;
 class ReviewController extends Controller
 {
     /**
@@ -44,6 +45,20 @@ class ReviewController extends Controller
       $review->review_description = $request->review_text;
       $review->review_rating = $request->rating;
       $review->save();
+      $book = Book::Find($request->book_id);
+      if ($book->review_count == 0)
+      {
+        $book->review_count = 1;
+        $book->review_sum = $request->rating;
+        $book->save();
+      }
+      else
+      {
+        $book->review_count = $book->review_count + 1;
+        $book->review_sum = $book->review_sum + $request->rating;
+        $book->save();
+      }
+
       return redirect("/books/show/$request->book_id");
     }
 

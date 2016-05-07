@@ -20,7 +20,9 @@
             @else
               <div class="col-md-4"><img src="/uploads/cover_pics/default.jpg" height="250" width="250"/></div>
             @endif
-            <div class="col-md-8"><p> {{ $book->description }}</p> </div>
+            @if($rating > 0)
+              <div class="col-md-8"><strong> Overall Score: {{ $book->review_sum/$book->review_count }}</strong><p> {{ $book->description }}</p> </div>
+            @endif
           </div>
           <div class="row">
             <div class="col-md-8"></div>
@@ -77,6 +79,7 @@
       <div class="col-md-8">
         <div class="panel panel-danger">
           <div class="panel-heading"> <strong> See reviews from readers of {{ $book->name }} </strong></div>
+          <div class="col-md-10"><strong> Displaying {{ $reviews->count() }} reviews </strong><br/></div>
           @foreach($reviews as $review)
           <div class="row">
             <br/>
