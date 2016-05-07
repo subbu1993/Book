@@ -33,7 +33,12 @@
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="/genre/list/Comedy">Comedy</a></li>
+                  <li><a href="/genre/list/Drama">Drama</a></li>
                   <li><a href="/genre/list/Fiction">Fiction</a></li>
+                  <li><a href="/genre/list/Non-Fiction">Non-fiction</a></li>
+                  <li><a href="/genre/list/Realistic fiction">Realistic fiction</a></li>
+                  <li><a href="/genre/list/Romance novel">Romance novel</a></li>
+                  <li><a href="/genre/list/Satire">Satire</a></li>
                   <li><a href="/genre/list/Tragedy">Tragedy</a></li>
                 </ul>
               </li>
