@@ -70,10 +70,10 @@
         <nav class="navbar navbar-default navbar-fixed-bottom">
           <div class="container-fluid">
             <ul class="nav navbar-nav">
-              <li><a href="/follow">About</a></li>
-              <li><a href="/">Team</a></li>
-              <li><a href="/">Contact Us</a></li>
-              <li><a href="/">Contribute</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/team">Team</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+              <li><a href="/contribute">Contribute</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="#"><span class="	glyphicon glyphicon-copyright-mark"></span> Created by the BookIT Team</a></li>
