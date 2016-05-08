@@ -36,3 +36,5 @@ Route::get('/books/done/{id}','BookController@done');
 Route::get('/books/newArrivals','BookController@newArrivals');
 
 Route::get('/genre/list/{genre_name}','GenreController@listBooks');
+
+Route::get('/authors/list/{id}','AuthorController@list');
