@@ -101,6 +101,12 @@ class BookController extends Controller
       $names = Book::all()->pluck('name')->implode(',');
       return $names;
     }
+    public function retrieveBook(Request $request)
+    {
+        $book=$request->book_name;
+        $id=$this->findBook($book);
+        return redirect("/books/show/$id");
+    }
 
     public function welcome(Request $request)
     {
