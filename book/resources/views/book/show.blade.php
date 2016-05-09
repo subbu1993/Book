@@ -25,7 +25,9 @@
             @endif
           </div>
           <div class="row">
-            <div class="col-md-8"></div>
+            <br/>
+            <div class="col-md-2"><center><a class="btn btn-info btn-large" href="/authors/list/{{$book->author()->get()->first()->id}}"> More From this Author </a></center></div>
+            <div class="col-md-6"></div>
             <div class="col-md-1"></div>
             <div class="col-md-1"><a class="btn btn-danger btn-large" onclick="showReview();">Write Review</a> </div>
             <div class="col-md-1"></div>
