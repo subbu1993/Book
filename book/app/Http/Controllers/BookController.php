@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use Response;
 use View;
+use Symfony\Component\HttpKernel\Exception;
 
 class BookController extends Controller
 {
@@ -136,7 +137,11 @@ class BookController extends Controller
     {
       $book = Book::find($id);
       $reviews = $book->reviews()->get();
-      return view('book.show', ['book' => $book, 'reviews' => $reviews]);
+      if($book->review_sum != 0)
+        $rating = $book->review_sum/$book->review_count;
+      else
+        $rating = 0;
+      return view('book.show', ['book' => $book,'rating' => $rating, 'reviews' => $reviews]);
     }
 
     public function read($id)

@@ -38,3 +38,22 @@ Route::get('/books/done/{id}','BookController@done');
 Route::get('/books/newArrivals','BookController@newArrivals');
 
 Route::get('/genre/list/{genre_name}','GenreController@listBooks');
+
+Route::get('/authors/list/{id}','AuthorController@list');
+
+Route::get('/about',function(){
+  return view('about');
+});
+
+Route::get('/team',function(){
+  return view('team');
+});
+
+
+Route::get('/contact',function(){
+  return view('contact');
+});
+
+Route::get('/contribute',function(){
+  return view('contribute');
+});

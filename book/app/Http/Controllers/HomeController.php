@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use Symfony\Component\HttpKernel\Exception;
 class HomeController extends Controller
 {
     /**
