@@ -5,11 +5,27 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
         <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js" type="text/javascript"></script>
-        <!-- Latest compiled JavaScript -->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+          $(function() {
+             var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open( "GET", '/books/all', false ); // false for synchronous request
+            xmlHttp.send( null );
+            var books =  xmlHttp.responseText.split(",");
+            
+            $( "#search" ).autocomplete({
+              source: books
+            });
+          });
+            $("#searchButton").click(function(){
+
+            });
+        </script>
 
         <style>
         body {
@@ -46,15 +62,26 @@
           @endif
           <!-- Right Side Of Navbar -->
           <ul class="nav navbar-nav navbar-right">
+
               <!-- Authentication Links -->
               @if (Auth::guest())
                   <li><a href="{{ url('/login') }}">Login</a></li>
                   <li><a href="{{ url('/register') }}">Register</a></li>
               @else
+                  <li class="ui-widget">
+                  <form action="/books/get" method="post">
+                  <label for="search">Search: </label>
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <input id="search" type="text" name="book_name"/>
+                  <input type="submit" id="searchButton" value="Go"/>
+                  </form>
+
+                </li>
                   <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                           {{ Auth::user()->name }} <span class="caret"></span>
                       </a>
+
 
                       <ul class="dropdown-menu" role="menu">
                           <li><a href="{{ url('/library') }}"><i class="fa fa-btn fa-sign-out"></i>My Library</a></li>

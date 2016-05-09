@@ -25,6 +25,8 @@ Route::get('/authors/all', 'AuthorController@getAllAuthors');
 
 Route::get('/books/all','BookController@getBookNames');
 
+Route::post('/books/get','BookController@retrieveBook');
+
 Route::get('books/show/{id}', 'BookController@show');
 
 Route::get('/books/read/{id}','BookController@read');
