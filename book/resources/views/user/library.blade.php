@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.library_master')
 
 @section('content')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
@@ -121,7 +121,7 @@
               </div>
               <div class="row">
                 @if(file_exists(public_path("uploads/cover_pics/$book->id.jpg")))
-                  <div class="col-sm-4"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="150" width="200"/></div>
+                  <div class="col-sm-4"><a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/{{$book->id}}.jpg" height="150" width="200"/></a></div>
                 @else
                   <div class="col-xs-3 image"><a href="/books/show/{{$book->id}}" class="thumbnail"><img src="/uploads/cover_pics/default.jpg" /></a><p><center><span>{{ $book->name}}</span></center></p></div>
                 @endif
