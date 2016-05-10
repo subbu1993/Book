@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="//code.jquery.com/jquery-1.10.2.js"></script>
         <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  
+
         <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         <script>
@@ -17,7 +17,7 @@
             xmlHttp.open( "GET", '/books/all', false ); // false for synchronous request
             xmlHttp.send( null );
             var books =  xmlHttp.responseText.split(",");
-            
+
             $( "#search" ).autocomplete({
               source: books
             });
